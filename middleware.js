@@ -9,5 +9,5 @@ export function* logger(next) {
   let start = new Date;
   yield next;
   var ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
+  console.log('%s %s - %sms', this.method, this.url, ms);
 };

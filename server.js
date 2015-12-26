@@ -2,25 +2,13 @@
 
 import koa from 'koa';
 import koaRouter from 'koa-router';
+import * as middleware from './middleware.js';
 
 let app = koa();
 let router = koaRouter();
 
-// Set X-Response-Time on requests
-app.use(function *(next) {
-  let start = new Date;
-  yield next;
-  var ms = new Date - start;
-  this.set('X-Response-Time', ms + 'ms');
-});
-
-// Log time of requests
-app.use(function *(next) {
-  let start = new Date;
-  yield next;
-  var ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
-});
+app.use(middleware.xResponseTime);
+app.use(middleware.logger);
 
 router.get('/', function *() {
   this.body = 'Hello World';

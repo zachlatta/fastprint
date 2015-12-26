@@ -1,19 +1,13 @@
 'use strict';
 
 import koa from 'koa';
-import koaRouter from 'koa-router';
+import router from './router.js';
 import * as middleware from './middleware.js';
 
 let app = koa();
-let router = koaRouter();
 
 app.use(middleware.xResponseTime);
 app.use(middleware.logger);
-
-router.get('/', function *() {
-  this.body = 'Hello World';
-});
-
 app.use(router.routes());
 
 let server = app.listen(process.env.PORT || 3000, () => {

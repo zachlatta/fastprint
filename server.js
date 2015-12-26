@@ -1,8 +1,10 @@
 'use strict';
 
 import koa from 'koa';
+import koaRouter from 'koa-router';
 
 let app = koa();
+let router = koaRouter();
 
 // Set X-Response-Time on requests
 app.use(function *(next) {
@@ -20,9 +22,11 @@ app.use(function *(next) {
   console.log('%s %s - %s', this.method, this.url, ms);
 });
 
-app.use(function *() {
+router.get('/', function *() {
   this.body = 'Hello World';
 });
+
+app.use(router.routes());
 
 let server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Started on port ${server.address().port}`);

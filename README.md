@@ -20,15 +20,13 @@ Fastprint to process. `FASTPRINT_URL` is the URL to your hosted Fastprint
 instance. You can use https://ngrok.com/ to expose an instance of Fastprint
 running in your local network to the world.
 
-```
-curl -s --user 'api:YOUR_API_KEY' \
-    https://api.mailgun.net/v3/routes \
-    -F priority=0 \
-    -F description='Fastprint' \
-    -F expression='match_recipient("print@YOUR_DOMAIN_NAME")' \
-    -F action='forward("FASTPRINT_URL/receive")' \
-    -F action='stop()'
-```
+    $ curl -s --user 'api:YOUR_API_KEY' \
+        https://api.mailgun.net/v3/routes \
+        -F priority=0 \
+        -F description='Fastprint' \
+        -F expression='match_recipient("print@YOUR_DOMAIN_NAME")' \
+        -F action='forward("FASTPRINT_URL/receive")' \
+        -F action='stop()'
 
 The final step is to start Fastprint itself. Go ahead and clone Fastprint,
 install dependencies, and then run `npm start`.

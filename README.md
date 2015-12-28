@@ -48,6 +48,7 @@ The final step is to start Fastprint itself. Go ahead and clone Fastprint,
 install dependencies, and then run `npm start`.
 
     $ git clone https://github.com/zachlatta/fastprint
+    $ cd fastprint
     $ npm install
     $ npm start
 

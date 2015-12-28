@@ -2,8 +2,6 @@
 
 Email a file to `print@yourdomain.com` to print it.
 
-Demo:
-
 ![](demo.gif)
 
 ## Setup

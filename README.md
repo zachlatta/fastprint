@@ -2,6 +2,10 @@
 
 Email a file to `print@yourdomain.com` to print it.
 
+Demo:
+
+![](demo.gif)
+
 ## Setup
 
 There are three steps to get Fastprint working:

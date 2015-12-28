@@ -1,12 +1,24 @@
 # Fastprint
 
-Email a file to `print@yourdomain.com` and get it printed.
+Email a file to `print@yourdomain.com` to print it.
 
 ## Setup
+
+There are three steps to get Fastprint working:
+
+1. [Set up an OS X or Linux machine with a printer (Fastprint will run on this
+   machine)](#machine-setup)
+2. [Configure a Mailgun account to handle mail sent to
+   `print@yourdomain.com`](#mailgun-setup)
+3. [Start Fastprint](#start-fastprint)
+
+#### Machine Setup
 
 Start by configuring your computer with the printer you'd like to use, if it's
 not set up already. If you're on OS X or a large Linux distro (like Debian),
 you'll want to use your standard system preferences for setting this up.
+
+#### Mailgun Setup
 
 Next create a [Mailgun](https://mailgun.com) account and set it up with your
 domain of choice. I've configured mine with `mg.zachlatta.com`.
@@ -27,6 +39,8 @@ running in your local network to the world.
         -F expression='match_recipient("print@YOUR_DOMAIN_NAME")' \
         -F action='forward("FASTPRINT_URL/receive")' \
         -F action='stop()'
+
+#### Start Fastprint
 
 The final step is to start Fastprint itself. Go ahead and clone Fastprint,
 install dependencies, and then run `npm start`.
